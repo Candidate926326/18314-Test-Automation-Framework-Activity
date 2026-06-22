@@ -16,7 +16,7 @@ test.beforeEach (async ({page}) => {
 
 })
 
-test ('Demo Login Positive Test', async({page}) => {
+test ('Positive Login Test', async({page}) => {
     
     // Populate username and password field with valid credentials, submit
     await page.locator('[name="username"]').fill(username);
@@ -33,7 +33,7 @@ test ('Demo Login Positive Test', async({page}) => {
 
 })
 
-test ('Demo Login Negative Test 1', async({page}) => {
+test ('Negative Login Test 1', async({page}) => {
     
     // Attempt login with with invalid password, submit
     await page.locator('[name="username"]').fill(username);
@@ -48,7 +48,7 @@ test ('Demo Login Negative Test 1', async({page}) => {
 
 })
 
-test ('Demo Login Negative Test 2', async({page}) => {
+test ('Negative Login Test 2', async({page}) => {
     
     // Attempt login with invalid username, submit
     await page.locator('[name="username"]').fill('negative');
@@ -62,7 +62,7 @@ test ('Demo Login Negative Test 2', async({page}) => {
 
 })
 
-test ('Demo Login Negative Test 3', async({page}) => {
+test ('Negative Login Test 3', async({page}) => {
     
     // Attempt login without providing credentials, submit
     await page.getByRole('button', {name:'Login'}).click();
