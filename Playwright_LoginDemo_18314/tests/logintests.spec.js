@@ -1,5 +1,7 @@
 import {test, expect} from '@playwright/test'
 
+// Ordinarily these credentials would be added to a separate file and added to the .gitignore list;
+// included here for ease of reference, and because they are readily available on the page used in these tests
 const username="Admin"
 const password="admin123"
 
@@ -7,8 +9,8 @@ const password="admin123"
 test.beforeEach (async ({page}) => {
 
     // Load the login page
-    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    await expect.soft(page).toHaveTitle('OrangeHRM')
+    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+    await expect.soft(page).toHaveTitle('OrangeHRM');
     // removed visual validation due to flakiness
     // await expect.soft(page).toHaveScreenshot()
 
@@ -38,7 +40,7 @@ test ('Demo Login Negative Test 1', async({page}) => {
     await page.locator('[name="password"]').fill('negative');
     await page.getByRole('button', {name:'Login'}).click();
     // Confirm alert message shows "invalid credentials"
-    await expect(page.getByRole('Alert')).toHaveText('Invalid credentials')
+    await expect(page.getByRole('Alert')).toHaveText('Invalid credentials');
 
     // removed visual validation due to flakiness
     // await expect.soft(page).toHaveScreenshot()
@@ -53,7 +55,7 @@ test ('Demo Login Negative Test 2', async({page}) => {
     await page.locator('[name="password"]').fill(password);
     await page.getByRole('button', {name:'Login'}).click();
     // Confirm alert message shows "invalid credentials"
-    await expect(page.getByRole('Alert')).toHaveText('Invalid credentials')
+    await expect(page.getByRole('Alert')).toHaveText('Invalid credentials');
 
     // removed visual validation due to flakiness
     // await expect.soft(page).toHaveScreenshot()
@@ -80,7 +82,7 @@ test.afterEach (async ({page}) => {
 
     // Confirm on expected page (login) and close down
     await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-    await expect.soft(page).toHaveTitle('OrangeHRM')
+    await expect.soft(page).toHaveTitle('OrangeHRM');
     await page.close()
 
 })
