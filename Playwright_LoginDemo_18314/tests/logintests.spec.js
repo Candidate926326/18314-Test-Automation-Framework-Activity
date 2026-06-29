@@ -1,10 +1,5 @@
 import {test, expect} from '@playwright/test'
-
-// Ordinarily these credentials would be added to a separate file and added to the .gitignore list;
-// included here for ease of reference, and because they are readily available on the page used in these tests
-const username="Admin"
-const password="admin123"
-
+import {username, password} from '../node_modules/@playwright/test/credentials.json'
 
 test.beforeEach (async ({page}) => {
 
